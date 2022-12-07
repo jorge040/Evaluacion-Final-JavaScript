@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen</title>
+</head>
+
+<body>
+
+    <fieldset>
+        <table id="productos" border="1 px">
+            <tr>
+                <th>ID</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Eliminar</th>
+                <th>Seleccionar</th>
+            </tr>
+        </table>
+        <br>
+        <h3>Codigo <input type="number" value="0"></h3>
+        <h3>Descripcion <input type="text"></h3>
+        <h3>Precio <input type="number " value="0"></h3>
+        <input type="button" value="Eliminar"> <input type="button" value="Seleccionar">
+    </fieldset>
+
+
+    <script>
+
+        let productos = new Array(5);
+        productos[0] = { id: 1, Descripcion: 'Papas', Precio: 17, Eliminar: '<input type="button" value="Eliminar">', Seleccionar: '<input type="button" value="Seleccionar">' };
+        productos[1] = { id: 2, Descripcion: 'Manzanas', Precio: 10, Eliminar: '<input type="button" value="Eliminar">', Seleccionar: '<input type="button" value="Seleccionar">' };
+        productos[2] = { id: 3, Descripcion: 'Melon', Precio: 12, Eliminar: '<input type="button" value="Eliminar">', Seleccionar: '<input type="button" value="Seleccionar">' };
+        productos[3] = { id: 4, Descripcion: 'Cebollas', Precio: 9, Eliminar: '<input type="button" value="Eliminar">', Seleccionar: '<input type="button" value="Seleccionar">' };
+        productos[4] = { id: 5, Descripcion: 'Calabaza', Precio: 14, Eliminar: '<input type="button" value="Eliminar">', Seleccionar: '<input type="button" value="Seleccionar">' };
+
+        let Tabla_Productos = document.getElementById('productos');
+        let Contenido_tabla = document.createElement('tbody');
+
+        productos.forEach(p => {
+            console.log(p.id);
+
+            let fila = document.createElement('tr');
+            let columna = document.createElement('td');
+
+            columna.innerText = p.id;
+            fila.appendChild(columna);
+
+
+            columna = document.createElement('td');
+            columna.innerText = p.Descripcion;
+            fila.appendChild(columna);
+
+            columna = document.createElement('td');
+            columna.innerText = p.Precio;
+            fila.appendChild(columna);
+
+            columna = document.createElement('td');
+            columna.innerHTML = p.Eliminar;
+            fila.appendChild(columna);
+
+            columna = document.createElement('td');
+            columna.innerHTML = p.Seleccionar;
+            fila.appendChild(columna);
+
+
+
+
+            Contenido_tabla.appendChild(fila);
+
+        });
+
+        Tabla_Productos.appendChild(Contenido_tabla);
+
+    </script>
+
+    <!-- Funcionalidad -->
+
+    <script>
+
+        // Ordenar
+        let vec = [1,3,4,2,5,7,6];
+        document.write('ID antes de ser ordenado <br>');
+        for (let f = 0; f < vec.length; f++) {
+            document.write(vec[f] + '<br>');
+        }
+
+        vec.sort(function(id_1,id_2){
+            if (id_1 < id_2) {
+                return -1;
+            }else{
+                return 1;
+            }
+        });
+        document.write('ID ordenado <br>');
+        for (let f = 0; f < vec.length; f++) {
+            document.write(vec[f] + '<br>');
+
+        }
+
+
+        // borrar
+        let borrar = [0, 1, 2, 3, 4, 5, 6, 7];
+        document.write('ID <br>');
+        for (let f = 0; f < borrar.length; f++) {
+            document.write(borrar[f] + '<br>');
+        }
+
+        borrar.splice(6, 7);
+        document.write('Borrar 6 , 7 <br>');
+        for (let f = 0; f < borrar.length; f++) {
+            document.write(borrar[f] + '<br>');
+        }
+
+
+    //     // Modificar
+        let Modificar = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        document.write('ID <br>');
+        for (let f = 0; f < Modificar.length; f++) {
+            document.write(Modificar[f] + '<br>');
+        }
+
+       Modificar.splice( 8, 9, 10, 11,);
+       document.write(' Valores agregados <br>');
+       for (let f = 0; f < Modificar.length; f++) {
+        document.write(Modificar[f] + '<br>');
+       }
+
+
+    </script>
+
+</body>
+
+</html>
